@@ -7,7 +7,7 @@ export default class UserController extends BaseController {
     // 校验参数
     ctx.validate(
       {
-        pin: { type: 'string', required: true },
+        pin: { type: 'string', format: /\d+/, required: true }, // get 请求参数都是字符串，可通过 format 校验字符
         name: { type: 'string', required: true },
         age: { type: 'string', required: false }
       },

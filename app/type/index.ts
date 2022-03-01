@@ -4,7 +4,8 @@ export interface UserInfoType {
   age?: number
 }
 export interface BlogType {
-  title?: string
+  title: string
   description?: string
-  author?: string
+  author: string
+  classify: number
 }

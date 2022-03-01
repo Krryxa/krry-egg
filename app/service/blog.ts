@@ -29,4 +29,43 @@ export default class BlogService extends Service {
   public async handleBlogList(blog) {
     return blogMap[blog.id]
   }
+
+  /**
+   * 新增博客
+   * @param blog - blog info
+   */
+  public async addBlog(blog) {
+    // 插入数据库
+    console.log('新增博客', blog)
+    return {
+      message: '新增成功',
+      blog
+    }
+  }
+
+  /**
+   * 修改博客
+   * @param blog - blog info
+   */
+  public async updateBlog(blog) {
+    // 插入数据库
+    console.log('编辑博客', blog)
+    return {
+      message: '编辑成功',
+      blog
+    }
+  }
+
+  /**
+   * 删除博客
+   * @param id - id
+   */
+  public async deleteBlog(id) {
+    // 插入数据库
+    console.log('删除博客', id)
+    return {
+      message: '删除成功',
+      id
+    }
+  }
 }

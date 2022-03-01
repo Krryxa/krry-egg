@@ -9,7 +9,7 @@ export default (app: Application) => {
   // 通过自定义正则来捕获 URL 中的分组参数，放入 ctx.params 中
   // router.get(/^\/package\/([\w-.]+\/[\w-.]+)$/, controller.package.detail)
 
-  // 建议通过 RESTful 风格的 URL 定义。将会自动生成路由
-  // 参数：路由名；请求路径；controller
+  // 建议通过 RESTful 风格的 URL 定义。将会自动生成路由。注意 put、DELETE 请求的 url 后面要加上唯一ID：/id
+  // 参数：路由名、请求路径、controller
   router.resources('blog', '/blog', controller.blog.list)
 }
