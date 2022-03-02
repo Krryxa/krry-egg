@@ -4,7 +4,7 @@ import { UserInfoType } from '../type'
 export default class UserController extends BaseController {
   public async info() {
     const { ctx } = this
-    // 校验参数
+    // 校验参数。如果参数校验未通过，将会抛出一个 status：422 的异常
     ctx.validate(
       {
         pin: { type: 'string', format: /\d+/, required: true }, // get 请求参数都是字符串，可通过 format 校验字符

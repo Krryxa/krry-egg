@@ -27,7 +27,7 @@ export default class BlogService extends Service {
    * @param blog - blog info
    */
   public async handleBlogList(blog) {
-    return blogMap[blog.id]
+    return { result: blogMap[blog.id] }
   }
 
   /**
@@ -39,7 +39,9 @@ export default class BlogService extends Service {
     console.log('新增博客', blog)
     return {
       message: '新增成功',
-      blog
+      result: {
+        ...blog
+      }
     }
   }
 
@@ -52,7 +54,9 @@ export default class BlogService extends Service {
     console.log('编辑博客', blog)
     return {
       message: '编辑成功',
-      blog
+      result: {
+        ...blog
+      }
     }
   }
 
@@ -65,7 +69,9 @@ export default class BlogService extends Service {
     console.log('删除博客', id)
     return {
       message: '删除成功',
-      id
+      result: {
+        id
+      }
     }
   }
 }

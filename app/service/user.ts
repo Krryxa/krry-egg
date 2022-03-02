@@ -10,8 +10,13 @@ export default class UserService extends Service {
    * @param user - user info
    */
   public async handleUserInfo(user: UserInfoType) {
-    return Object.keys(user).length
-      ? `处理好了用户信息。pin：${user?.pin} / 用户名：${user?.name} / 年龄：${user?.age}`
-      : '请输入用户信息'
+    const resData = Object.keys(user).length ? user : {
+      message: '信息为空'
+    }
+    return {
+      result: {
+        ...resData
+      }
+    }
   }
 }
