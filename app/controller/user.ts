@@ -2,7 +2,7 @@ import { BaseController } from './base'
 import { UserInfoType } from '../type'
 
 export default class UserController extends BaseController {
-  public async info() {
+  async info() {
     const { ctx } = this
     // 校验参数。如果参数校验未通过，将会抛出一个 status：422 的异常
     ctx.validate(

@@ -9,7 +9,7 @@ export default class UserService extends Service {
    * 获取信息
    * @param user - user info
    */
-  public async handleUserInfo(user: UserInfoType) {
+  async handleUserInfo(user: UserInfoType) {
     const resData = Object.keys(user).length ? user : {
       message: '信息为空'
     }
