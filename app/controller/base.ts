@@ -23,7 +23,7 @@ export class BaseController extends Controller {
       } else {
         ctx.body = {
           message: 'response format error',
-          ...data
+          data
         }
         ctx.status = 500
       }
