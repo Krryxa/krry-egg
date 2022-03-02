@@ -12,4 +12,11 @@ export default (app: Application) => {
   // 建议通过 RESTful 风格的 URL 定义。将会自动生成路由。注意 put、DELETE 请求的 url 后面要加上唯一ID：/id
   // 参数：路由名、请求路径、controller
   router.resources('blog', '/blog', controller.blog.list)
+
+  // 挂载鉴权路由
+  app.passport.mount('github')
+  // 上面的 mount 是语法糖，等价于
+  // const github = app.passport.authenticate('github', {});
+  // router.get('/passport/github', github);
+  // router.get('/passport/github/callback', github);
 }
