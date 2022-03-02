@@ -21,6 +21,11 @@ const plugin: EggPlugin = {
   passportGithub: {
     enable: true,
     package: 'egg-passport-github'
+  },
+
+  jwt: {
+    enable: true,
+    package: 'egg-jwt'
   }
 }
 

@@ -1,7 +1,7 @@
 import { Application } from 'egg'
 
 export default (app: Application) => {
-  const { controller, router } = app
+  const { controller, router, jwt } = app
 
   router.get('/', controller.home.index)
   // 这种方式可捕获 URL 中的命名参数，注入到 controller ctx.params.x
@@ -13,10 +13,15 @@ export default (app: Application) => {
   // 参数：路由名、请求路径、controller
   router.resources('blog', '/blog', controller.blog.list)
 
-  // 挂载鉴权路由
+  // 挂载 egg-passport-github 鉴权路由
   app.passport.mount('github')
   // 上面的 mount 是语法糖，等价于
   // const github = app.passport.authenticate('github', {});
   // router.get('/passport/github', github);
   // router.get('/passport/github/callback', github);
+
+  // 挂载 egg-jwt 鉴权路由
+  router.post('/blog/login', controller.blog.user.login)
+  // 需要校验登录的接口，加上 jwt 说明需要校验
+  router.get('/blog/list', jwt as any, controller.blog.user.list)
 }

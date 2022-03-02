@@ -6,6 +6,7 @@ import ExportBase from '../../../app/controller/base';
 import ExportHome from '../../../app/controller/home';
 import ExportUser from '../../../app/controller/user';
 import ExportBlogList from '../../../app/controller/blog/list';
+import ExportBlogUser from '../../../app/controller/blog/user';
 
 declare module 'egg' {
   interface IController {
@@ -14,6 +15,7 @@ declare module 'egg' {
     user: ExportUser;
     blog: {
       list: ExportBlogList;
+      user: ExportBlogUser;
     }
   }
 }
