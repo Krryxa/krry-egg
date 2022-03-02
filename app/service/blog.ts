@@ -26,7 +26,7 @@ export default class BlogService extends Service {
    * 获取信息
    * @param blog - blog info
    */
-  async handleBlogList(blog) {
+  async getBlog(blog) {
     return { result: blogMap[blog.id] }
   }
 

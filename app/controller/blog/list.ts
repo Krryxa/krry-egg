@@ -20,7 +20,7 @@ export default class ListController extends BaseController {
       id,
       title
     })
-    const BlogInfo = await ctx.service.blog.handleBlogList(reqData)
+    const BlogInfo = await ctx.service.blog.getBlog(reqData)
 
     this.success(BlogInfo)
   }
