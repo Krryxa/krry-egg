@@ -18,6 +18,7 @@ import 'egg-validate';
 import 'egg-passport';
 import 'egg-passport-github';
 import 'egg-jwt';
+import 'egg-mysql';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {
@@ -37,5 +38,6 @@ declare module 'egg' {
     passport?: EggPluginItem;
     passportGithub?: EggPluginItem;
     jwt?: EggPluginItem;
+    mysql?: EggPluginItem;
   }
 }

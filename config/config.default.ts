@@ -30,7 +30,7 @@ export default (appInfo: EggAppInfo) => {
     // proxy: false,
   }
 
-  // 配置 egg-jwt secret
+  // 插件的配置 egg-jwt secret
   config.jwt = {
     secret: 'krryxq123456'
   }

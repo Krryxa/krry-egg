@@ -1,23 +1,5 @@
 import { Service } from 'egg'
 
-const blogMap = {
-  1: {
-    title: 'JavaScript 相关的工具代码',
-    description: '记录一些 js 常用的工具代码',
-    author: 'Krry'
-  },
-  2: {
-    title: 'Vue3.2 实现 Web Components',
-    description: 'vue3.2 新特性之一',
-    author: 'Krry'
-  },
-  3: {
-    title: 'Pinia 实践：更优雅、更灵活',
-    description: '使用 Pinia 之后，项目开发得更加悠然，代码更优雅、更灵活~',
-    author: 'Krry'
-  }
-}
-
 /**
  * BlogService Service
  */
@@ -27,7 +9,11 @@ export default class BlogService extends Service {
    * @param blog - blog info
    */
   async getBlog(blog) {
-    return { result: blogMap[blog.id] }
+    // 由于对 MySQL 数据库的访问操作属于 Web 层中的数据处理层，因此我们强烈建议将这部分代码放在 Service 层中维护
+    const result = await this.app.mysql.select('revise', {
+      where: { id: blog.id }
+    })
+    return { result }
   }
 
   /**
