@@ -28,6 +28,15 @@ export default () => {
       app: true,
       // 是否加载到 agent 上，默认关闭
       agent: false
+    },
+    // 插件 redis 配置
+    redis: {
+      client: {
+        port: 6379, // Redis port
+        host: '127.0.0.1', // Redis host
+        password: '',
+        db: 0
+      }
     }
   }
   return config

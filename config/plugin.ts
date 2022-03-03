@@ -30,8 +30,12 @@ const plugin: EggPlugin = {
 
   mysql: {
     enable: true,
-    package: 'egg-mysql',
+    package: 'egg-mysql'
   },
+  redis: {
+    enable: true,
+    package: 'egg-redis'
+  }
 }
 
 export default plugin

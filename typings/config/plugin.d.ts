@@ -19,6 +19,7 @@ import 'egg-passport';
 import 'egg-passport-github';
 import 'egg-jwt';
 import 'egg-mysql';
+import 'egg-redis';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {
@@ -39,5 +40,6 @@ declare module 'egg' {
     passportGithub?: EggPluginItem;
     jwt?: EggPluginItem;
     mysql?: EggPluginItem;
+    redis?: EggPluginItem;
   }
 }

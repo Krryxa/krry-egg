@@ -13,7 +13,10 @@ export default class BlogService extends Service {
     const result = await this.app.mysql.select('revise', {
       where: { id: blog.id }
     })
-    return { result }
+    // redis 测试。redis 存对象：采用序列化 或 json 字符串
+    await this.app.redis.set('blog', JSON.stringify(result))
+    const redisResult = await this.app.redis.get('blog')
+    return { result, redisResult: JSON.parse(redisResult ?? '{}') }
   }
 
   /**
