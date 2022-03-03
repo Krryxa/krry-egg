@@ -7,6 +7,8 @@ export default (app: Application) => {
 
   // 这种方式可捕获 URL 中的命名参数，注入到 controller ctx.params.x
   router.get('/user/:pin/:name/:age?', controller.user.info)
+  router.get('/user/testcookie', controller.user.testCookie)
+  router.post('/user/testsession', controller.user.testSession)
   // 通过自定义正则来捕获 URL 中的分组参数，放入 ctx.params 中
   // router.get(/^\/package\/([\w-.]+\/[\w-.]+)$/, controller.package.detail)
 
