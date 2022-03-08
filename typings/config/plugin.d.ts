@@ -20,6 +20,7 @@ import 'egg-passport-github';
 import 'egg-jwt';
 import 'egg-mysql';
 import 'egg-redis';
+import 'egg-apigw-tracer';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {
@@ -41,5 +42,6 @@ declare module 'egg' {
     jwt?: EggPluginItem;
     mysql?: EggPluginItem;
     redis?: EggPluginItem;
+    tracer?: EggPluginItem;
   }
 }

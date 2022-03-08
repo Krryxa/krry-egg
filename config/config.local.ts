@@ -37,6 +37,9 @@ export default () => {
         password: '',
         db: 0
       }
+    },
+    tracer: {
+      mode: 'uuid'
     }
   }
   return config

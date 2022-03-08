@@ -35,6 +35,10 @@ const plugin: EggPlugin = {
   redis: {
     enable: true,
     package: 'egg-redis'
+  },
+  tracer: {
+    enable: true,
+    package: 'egg-apigw-tracer'
   }
 }
 

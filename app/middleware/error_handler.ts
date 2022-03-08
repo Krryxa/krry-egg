@@ -16,7 +16,8 @@ export default () => {
       // 根据上面定义好的 RESTful API 风格，设置到响应中
       ctx.body = {
         code: status,
-        message: error
+        message: error,
+        requestId: ctx.traceId
       }
       // 针对 422 参数校验错误，返回具体字段校验信息
       if (status === 422) {
