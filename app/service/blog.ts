@@ -26,10 +26,11 @@ export default class BlogService extends Service {
   async addBlog(blog) {
     // 插入数据库
     console.log('新增博客', blog)
+    const result: any = await this.app.mysql.insert('revise', blog)
     return {
       message: '新增成功',
       result: {
-        ...blog
+        id: result.insertId
       }
     }
   }

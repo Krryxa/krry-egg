@@ -8,13 +8,18 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1646105925786_4766'
 
   // add your egg config in here
-  config.middleware = ['gzip']
+  config.middleware = ['gzip', 'errorHandler']
   // 配置 gzip 中间件的配置
   config.gzip = {
     // enable：控制中间件是否开启。
     // match：设置只有符合某些规则的请求才会经过这个中间件。例如只针对 /static 前缀开头的 url 请求开启：match: '/static'
     // ignore：设置符合某些规则的请求不经过这个中间件。
     threshold: 1024 // 小于 1k 的响应体不压缩
+  }
+
+  // 只对 /api 前缀的 url 路径生效
+  config.errorHandler = {
+    match: '/api'
   }
 
   // add your special config in here

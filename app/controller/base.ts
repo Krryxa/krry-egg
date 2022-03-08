@@ -2,7 +2,7 @@ import { Controller } from 'egg'
 
 export class BaseController extends Controller {
   /**
-   * @description: 定义响应格式
+   * @description: 定义响应格式、状态码
    * @param {*} data
    * @return {*}
    */  
