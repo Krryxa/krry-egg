@@ -13,11 +13,16 @@ export default () => {
           ? 'Internal Server Error'
           : err.message
 
-      // 从 error 对象上读出各个属性，设置到响应中
-      ctx.body = { error }
-      if (status === 422) {
-        ctx.body.detail = err.errors
+      // 根据上面定义好的 RESTful API 风格，设置到响应中
+      ctx.body = {
+        code: status,
+        message: error
       }
+      // 针对 422 参数校验错误，返回具体字段校验信息
+      if (status === 422) {
+        ctx.body.errors = err.errors
+      }
+      // 设置状态码
       ctx.status = status
     }
   }

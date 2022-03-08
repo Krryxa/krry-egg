@@ -19,7 +19,7 @@ export default (appInfo: EggAppInfo) => {
 
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
-    match: '/api'
+    // match: '/api'
   }
 
   // add your special config in here
