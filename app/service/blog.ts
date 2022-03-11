@@ -5,17 +5,35 @@ import { Service } from 'egg'
  */
 export default class BlogService extends Service {
   /**
-   * 获取信息
+   * 根据主键查询一条数据
    * @param blog - blog info
    */
-  async getBlog(blog) {
-    // 由于对 MySQL 数据库的访问操作属于 Web 层中的数据处理层，因此我们强烈建议将这部分代码放在 Service 层中维护
-    const result = await this.app.mysql.select('revise', {
-      where: { id: blog.id }
+  async getBlogById(id) {
+    // mysql 查询
+    const result = await this.app.mysql.select('blogs', {
+      where: { id }
     })
-    // redis 测试。redis 存对象：采用序列化 或 json 字符串
+
+    return { result }
+  }
+
+  /**
+   * 查询列表
+   * @param blog - blog info
+   */
+  async getBlog(params) {
+    // mysql 分页查询
+    const result = await this.app.mysql.select('blogs', {
+      limit: +params.pageSize, // 返回数据量
+      offset: (+params.pageIndex - 1) * params.pageSize // 数据偏移量
+    })
+
+    // redis
+    // redis 存对象：采用序列化 或 json 字符串
     await this.app.redis.set('blog', JSON.stringify(result))
+    // redis 查询
     const redisResult = await this.app.redis.get('blog')
+
     return { result, redisResult: JSON.parse(redisResult ?? '{}') }
   }
 
@@ -26,7 +44,7 @@ export default class BlogService extends Service {
   async addBlog(blog) {
     // 插入数据库
     console.log('新增博客', blog)
-    const result: any = await this.app.mysql.insert('revise', blog)
+    const result: any = await this.app.mysql.insert('blogs', blog)
     return {
       message: '新增成功',
       result: {

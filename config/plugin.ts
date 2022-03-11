@@ -36,6 +36,10 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-redis'
   },
+  sequelize: {
+    enable: true,
+    package: 'egg-sequelize',
+  },
   tracer: {
     enable: true,
     package: 'egg-apigw-tracer'

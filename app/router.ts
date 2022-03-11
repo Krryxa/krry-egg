@@ -16,6 +16,8 @@ export default (app: Application) => {
   // 参数：路由名、请求路径、controller
   router.resources('blog', '/blog', controller.blog.list)
 
+  router.resources('blogModel', '/blog-model', controller.blog.testModel)
+
   // 挂载 egg-passport-github 鉴权路由
   app.passport.mount('github')
   // 上面的 mount 是语法糖，等价于
