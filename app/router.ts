@@ -26,6 +26,7 @@ export default (app: Application) => {
   // 挂载 egg-jwt 鉴权路由
   router.post('/blog/login', controller.blog.user.login)
   // 需要校验登录的接口，加上 jwt 说明需要校验登录态
+  // const jwtErr = middleware.jwtErr(app.config.jwt)
   router.get('/blog/list', jwt as any, controller.blog.user.list)
 
   // router 中使用中间件

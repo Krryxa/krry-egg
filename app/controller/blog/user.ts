@@ -15,7 +15,8 @@ export default class UserController extends BaseController {
       },
       ctx.request.body
     )
-    const { username } = ctx.request.body
+    const { username, password } = ctx.request.body
+    console.log(username, password)
 
     // 验证账号密码是否正确
     // ...
@@ -34,6 +35,8 @@ export default class UserController extends BaseController {
     this.success({
       result: token
     })
+    // or 写入 cookie
+    // ctx.cookies.set('token', token)
   }
 
   /**
