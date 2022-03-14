@@ -12,7 +12,7 @@ export default (options) => {
         const decode = ctx.app.jwt.verify(token.split(' ')[1], options.secret)
         await next()
         console.log('decode：', decode)
-      } catch (error) {
+      } catch (error: any) {
         ctx.status = 401
         ctx.body = {
           ...body,
